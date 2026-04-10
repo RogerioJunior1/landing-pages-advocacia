@@ -3,7 +3,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Phone, MessageCircle, Scale, Shield, Award, Clock, Users, ShoppingCart, Home as HomeIcon, Building, Briefcase } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import balanceImage from '../assets/2n8lhMswimEV.png'
-import lawyerImage from '../assets/NjhNReq54iSe.jpg'
+
+// 👇 AQUI ESTÁ A MUDANÇA (Lembre-se de salvar a foto com este nome na pasta assets)
+import lawyerImage from '../assets/perfil.jpeg'
 
 const Home = () => {
   const whatsappNumber = "5515996651411"
@@ -116,7 +118,7 @@ const Home = () => {
               <img 
                 src={lawyerImage} 
                 alt="Advocacia Profissional"
-                className="w-full h-auto rounded-lg shadow-2xl"
+                className="w-full h-auto rounded-lg shadow-2xl object-cover object-top max-h-[600px]"
               />
             </div>
           </div>
@@ -169,7 +171,7 @@ const Home = () => {
               <img 
                 src={lawyerImage} 
                 alt="Advogado Rogério CBJ"
-                className="w-full h-auto rounded-lg shadow-lg"
+                className="w-full h-auto rounded-lg shadow-lg object-cover"
               />
             </div>
             <div>
@@ -291,4 +293,3 @@ const Home = () => {
 }
 
 export default Home
-
