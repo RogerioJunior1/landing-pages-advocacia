@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import balanceImage from '../assets/2n8lhMswimEV.png'
 
 // 👇 AQUI ESTÁ A MUDANÇA (Lembre-se de salvar a foto com este nome na pasta assets)
-import lawyerImage from '../assets/perfil.jpeg'
+import lawyerImage from '../assets/juninho.jpeg'
 
 const Home = () => {
   const whatsappNumber = "5515996651411"
