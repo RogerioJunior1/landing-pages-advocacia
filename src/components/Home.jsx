@@ -1,4 +1,4 @@
-pimport { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Phone, MessageCircle, Scale, Shield, Award, Clock, Users, ShoppingCart, Home as HomeIcon, Building, Briefcase } from 'lucide-react'
 import { Link } from 'react-router-dom'
