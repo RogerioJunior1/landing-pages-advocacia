@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+pimport { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Phone, MessageCircle, Scale, Shield, Award, Clock, Users, ShoppingCart, Home as HomeIcon, Building, Briefcase } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -187,7 +187,7 @@ const Home = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-5 w-5 text-blue-600" />
-                  <span className="text-gray-700">+10 Anos</span>
+                  <span className="text-gray-700">experiencia comprovada</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Shield className="h-5 w-5 text-green-600" />
