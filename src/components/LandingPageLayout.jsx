@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Phone, MessageCircle, Scale, Shield, Award, Clock } from 'lucide-react'
-import balanceImage from '../assets/simbolo.png'
+import balanceImage from 'simbolo.png'
 
 const LandingPageLayout = ({ 
   title, 
