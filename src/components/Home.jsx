@@ -48,7 +48,8 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-4 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-            <img src={balanceImage} alt="Símbolo Justiça" className="h-10 w-10 opacity-90 grayscale contrast-125" />
+            {/* LOGO ARRUAMDA AQUI */}
+            <img src={balanceImage} alt="Símbolo Justiça" className="h-10 w-10 object-contain" />
             <div className="flex flex-col">
               <h1 className="text-2xl font-serif text-[#1A1A1A] tracking-tight">Rogério CBJ</h1>
               <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4A265] font-semibold mt-0.5">Advocacia</span>
