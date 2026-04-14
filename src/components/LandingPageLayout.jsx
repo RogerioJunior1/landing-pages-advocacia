@@ -85,7 +85,12 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <img src={balanceImage} alt="Logo Justiça" className="h-10 w-10 transition-transform group-hover:scale-110" />
+              <img 
+                src={balanceImage} 
+                alt="Logo Justiça" 
+                className="h-10 w-10 transition-transform group-hover:scale-110" 
+                style={{ filter: 'invert(75%) sepia(50%) saturate(600%) hue-rotate(5deg) brightness(90%) contrast(90%)' }}
+              />
               <div>
                 <h1 className="text-xl font-bold text-slate-900 tracking-tight">Rogério CBJ</h1>
                 <p className="text-sm text-slate-600 font-medium">Advocacia</p>
@@ -285,7 +290,12 @@ const Home = () => {
             {/* Brand Col */}
             <div className="md:col-span-5 space-y-6">
               <div className="flex items-center space-x-3">
-                <img src={balanceImage} alt="Justiça" className="h-10 w-10 opacity-90" />
+                <img 
+                  src={balanceImage} 
+                  alt="Justiça" 
+                  className="h-10 w-10 opacity-90" 
+                  style={{ filter: 'invert(75%) sepia(50%) saturate(600%) hue-rotate(5deg) brightness(90%) contrast(90%)' }}
+                />
                 <div>
                   <h3 className="text-xl font-bold text-white tracking-tight">Rogério CBJ</h3>
                   <p className="text-sm text-blue-400 font-medium">Advocacia Especializada</p>
