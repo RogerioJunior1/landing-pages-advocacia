@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-// Importando todas as páginas do seu site
-import Home from './components/Home'
-import DireitoConsumidor from './components/DireitoConsumidor'
-import DireitoCivil from './components/DireitoCivil'
-import DireitoImobiliario from './components/DireitoImobiliario'
-import DireitoEmpresarial from './components/DireitoEmpresarial'
-import IndenizacoesCobrancas from './components/IndenizacoesCobrancas'
+// Importando todas as páginas com a extensão .jsx para o Vercel não se perder!
+import Home from './components/Home.jsx'
+import DireitoConsumidor from './components/DireitoConsumidor.jsx'
+import DireitoCivil from './components/DireitoCivil.jsx'
+import DireitoImobiliario from './components/DireitoImobiliario.jsx'
+import DireitoEmpresarial from './components/DireitoEmpresarial.jsx'
+import IndenizacoesCobrancas from './components/IndenizacoesCobrancas.jsx'
 
 function App() {
   return (
