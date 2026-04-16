@@ -1,293 +1,270 @@
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Phone, MessageCircle, Scale, Shield, Award, Clock } from 'lucide-react'
+import { 
+  Phone, 
+  MessageCircle, 
+  Scale, 
+  Shield, 
+  Award, 
+  Clock, 
+  Users, 
+  ShoppingCart, 
+  Home as HomeIcon, 
+  Briefcase,
+  ChevronRight,
+  CheckCircle2
+} from 'lucide-react'
+import { Link } from 'react-router-dom'
 
-// --- Imagem da Logo Dourada Atualizada ---
+// --- Imagens ---
+// AQUI ESTÁ A CORREÇÃO: Importando o arquivo dourado!
 import balanceImage from '../assets/2n8lhMswimEV-D2nFgqiM.png'
+import lawyerImage from '../assets/juninho.jpeg'
 
-const LandingPageLayout = ({ 
-  title, 
-  subtitle, 
-  heroImage, 
-  services, 
-  benefits,
-  ctaText = "Fale Conosco Agora",
-  accentColor = "blue"
-}) => {
-  const whatsappNumber = "5515996651411"
-  const whatsappMessage = encodeURIComponent(`Olá! Gostaria de saber mais sobre ${title?.toLowerCase() || 'seus serviços'}.`)
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+// --- Configurações ---
+const CONTACT = {
+  phone: "5515996651411",
+  displayPhone: "(15) 99665-1411",
+  message: encodeURIComponent("Olá, Dr. Rogério! Acessei o site e gostaria de um atendimento jurídico.")
+}
+const WA_URL = `https://wa.me/${CONTACT.phone}?text=${CONTACT.message}`
 
-  const handleWhatsAppClick = () => {
-    window.open(whatsappUrl, '_blank')
-  }
+const areas = [
+  { title: "Direito do Consumidor", desc: "Defesa implacável contra práticas abusivas de empresas e prestadores de serviços.", icon: ShoppingCart, link: "/direito-consumidor" },
+  { title: "Direito Civil", desc: "Resolução estratégica de litígios pessoais, familiares e patrimoniais.", icon: Users, link: "/direito-civil" },
+  { title: "Indenizações e Cobranças", desc: "Atuação incisiva na recuperação de valores e reparação de danos (morais e materiais).", icon: Scale, link: "/indenizacoes-cobrancas" },
+  { title: "Direito Imobiliário", desc: "Segurança jurídica em contratos, compra, venda e regularização de imóveis.", icon: HomeIcon, link: "/direito-imobiliario" },
+  { title: "Direito Empresarial", desc: "Blindagem jurídica e assessoria consultiva para o crescimento do seu negócio.", icon: Briefcase, link: "/direito-empresarial" }
+]
 
-  const handleCallClick = () => {
-    window.open('tel:+5515996651411', '_self')
-  }
+const Home = () => {
+  const openWA = () => window.open(WA_URL, '_blank', 'noopener,noreferrer')
+  const openCall = () => window.open(`tel:+${CONTACT.phone}`, '_self')
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-3">
-              {/* Logo Dourada aqui */}
-              <img src={balanceImage} alt="Justiça" className="h-10 w-10 object-contain" />
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">Rogério CBJ</h1>
-                <p className="text-sm text-gray-600">Advocacia</p>
-              </div>
+    // Fundo ultra clean em tons de off-white (#FAFAFA)
+    <div className="min-h-screen bg-[#FAFAFA] text-[#333333] font-sans selection:bg-[#C4A265] selection:text-white">
+      
+      {/* HEADER MINIMALISTA */}
+      <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center space-x-4 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
+            {/* Imagem limpa e sem grayscale */}
+            <img src={balanceImage} alt="Símbolo Justiça" className="h-10 w-10 object-contain" />
+            <div className="flex flex-col">
+              <h1 className="text-2xl font-serif text-[#1A1A1A] tracking-tight">Rogério CBJ</h1>
+              <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4A265] font-semibold mt-0.5">Advocacia</span>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="hidden md:flex items-center space-x-2 text-blue-800">
-                <Phone className="h-4 w-4" />
-                <span className="font-semibold">(15) 99665-1411</span>
-              </div>
-              <Button 
-                onClick={handleWhatsAppClick}
-                className="whatsapp-button text-white px-4 py-2 rounded-lg font-semibold"
-              >
-                <MessageCircle className="h-4 w-4 mr-2" />
-                WhatsApp
-              </Button>
-            </div>
+          </div>
+          
+          {/* Ações Header */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href={`tel:+${CONTACT.phone}`} className="flex items-center text-sm font-medium hover:text-[#C4A265] transition-colors">
+              <Phone className="w-4 h-4 mr-2 text-[#C4A265]" />
+              {CONTACT.displayPhone}
+            </a>
+            <Button onClick={openWA} className="bg-[#1A1A1A] hover:bg-[#333333] text-white px-6 py-5 rounded-none font-medium tracking-wide transition-all">
+              Fale com o Advogado
+            </Button>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="hero-gradient text-white section-padding">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                {title}
+      <main>
+        {/* HERO SECTION EDITORIAL */}
+        <section className="relative pt-12 pb-24 lg:pt-24 lg:pb-32 px-6 lg:px-12 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Texto Hero */}
+            <div className="lg:col-span-6 space-y-8 z-10">
+              <div className="inline-flex items-center space-x-2 border border-[#C4A265]/30 bg-[#C4A265]/5 px-4 py-2 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-[#C4A265] animate-pulse"></span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#C4A265]">Atendimento Personalizado</span>
+              </div>
+              
+              <h1 className="text-5xl lg:text-7xl font-serif text-[#1A1A1A] leading-[1.1] tracking-tight">
+                Defesa sólida <br/>
+                <span className="italic text-[#C4A265]">para seus direitos.</span>
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-blue-100">
-                {subtitle}
+              
+              <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+                Atuação combativa, técnica e estratégica. Oferecemos segurança jurídica com excelência para pessoas físicas e empresas.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  onClick={handleWhatsAppClick}
-                  size="lg"
-                  className="whatsapp-button text-white px-8 py-4 text-lg font-semibold"
-                >
-                  <MessageCircle className="h-5 w-5 mr-2" />
-                  {ctaText}
-                </Button>
-                <Button 
-                  onClick={handleCallClick}
-                  variant="outline"
-                  size="lg"
-                  className="bg-transparent border-white text-white hover:bg-white hover:text-blue-800 px-8 py-4 text-lg font-semibold"
-                >
-                  <Phone className="h-5 w-5 mr-2" />
-                  Ligar Agora
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button onClick={openWA} className="bg-[#C4A265] hover:bg-[#B39155] text-white px-8 py-6 rounded-none text-base font-semibold transition-all flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Agendar Consulta
                 </Button>
               </div>
             </div>
-            <div className="animate-fade-in">
-              <img 
-                src={heroImage} 
-                alt={title}
-                className="w-full h-auto rounded-lg shadow-2xl"
-              />
+
+            {/* Imagem Hero Estilo Capa de Revista */}
+            <div className="lg:col-span-6 relative">
+              <div className="absolute -inset-4 bg-[#C4A265] opacity-10 blur-2xl rounded-full"></div>
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img 
+                  src={lawyerImage} 
+                  alt="Dr. Rogério CBJ"
+                  className="object-cover object-top w-full h-full scale-105 hover:scale-100 transition-transform duration-1000"
+                />
+                {/* Overlay gradiente suave na base da foto */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent opacity-80"></div>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* BARRA DE CREDIBILIDADE (Dark Mode) */}
+        <section className="bg-[#1A1A1A] py-12 px-6">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-800">
+            <div className="flex items-center space-x-4 md:px-8">
+              <Award className="w-10 h-10 text-[#C4A265] stroke-[1.5]" />
+              <div>
+                <h4 className="text-white font-serif text-xl">OAB Ativa</h4>
+                <p className="text-gray-400 text-sm">Registro regular e verificado</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4 md:px-8 pt-8 md:pt-0">
+              <Shield className="w-10 h-10 text-[#C4A265] stroke-[1.5]" />
+              <div>
+                <h4 className="text-white font-serif text-xl">Sigilo Absoluto</h4>
+                <p className="text-gray-400 text-sm">Seus dados e caso protegidos</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4 md:px-8 pt-8 md:pt-0">
+              <Scale className="w-10 h-10 text-[#C4A265] stroke-[1.5]" />
+              <div>
+                <h4 className="text-white font-serif text-xl">Atuação Especializada</h4>
+                <p className="text-gray-400 text-sm">Foco nas melhores soluções</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* About Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src="/api/placeholder/500/400" 
-                alt="Advogado Rogério CBJ"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
+        {/* ÁREAS DE ATUAÇÃO (Minimalista / Editorial) */}
+        <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
+          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-xs tracking-[0.2em] font-bold text-[#C4A265] uppercase mb-4">Especialidades</h2>
+              <h3 className="text-4xl md:text-5xl font-serif text-[#1A1A1A]">Áreas de Atuação</h3>
             </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Sobre o Advogado
-              </h2>
-              <p className="text-lg text-gray-700 mb-6">
-                Com anos de experiência em advocacia, o Dr. Rogério CBJ é especialista em diversas áreas do direito, 
-                oferecendo atendimento personalizado e soluções jurídicas eficazes para seus clientes.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="flex items-center space-x-2">
-                  <Award className="h-5 w-5 text-yellow-500" />
-                  <span className="text-gray-700">OAB Ativo</span>
+            <p className="text-gray-600 max-w-md">Soluções sob medida para o seu momento de vida ou para o seu modelo de negócio.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            {areas.map((area, idx) => {
+              const Icon = area.icon;
+              return (
+                <div key={idx} className="group cursor-pointer">
+                  <div className="mb-6 w-14 h-14 bg-white border border-gray-100 flex items-center justify-center rounded-none shadow-sm group-hover:bg-[#C4A265] transition-colors duration-500">
+                    <Icon className="w-6 h-6 text-[#1A1A1A] group-hover:text-white transition-colors" strokeWidth={1.5} />
+                  </div>
+                  <h4 className="text-xl font-serif text-[#1A1A1A] mb-3">{area.title}</h4>
+                  <p className="text-gray-600 leading-relaxed mb-4">{area.desc}</p>
+                  <Link to={area.link} className="inline-flex items-center text-sm font-semibold text-[#C4A265] hover:text-[#1A1A1A] transition-colors">
+                    Saiba mais <ChevronRight className="w-4 h-4 ml-1" />
+                  </Link>
+                  <div className="h-px w-full bg-gray-200 mt-6 group-hover:bg-[#C4A265] transition-colors duration-500"></div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="h-5 w-5 text-blue-600" />
-                  <span className="text-gray-700">experiencia comprovada</span>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* SOBRE O ADVOGADO (Layout Dividido e Elegante) */}
+        <section className="bg-white border-y border-gray-100 py-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="grid lg:grid-cols-12 gap-16 items-center">
+              <div className="lg:col-span-5 relative">
+                <div className="absolute top-4 -left-4 w-full h-full border border-[#C4A265] z-0 hidden md:block"></div>
+                <img 
+                  src={lawyerImage} 
+                  alt="Dr. Rogério"
+                  className="w-full h-auto object-cover relative z-10 grayscale-[20%]"
+                />
+              </div>
+              
+              <div className="lg:col-span-7 space-y-8 lg:pl-10">
+                <div>
+                  <h2 className="text-xs tracking-[0.2em] font-bold text-[#C4A265] uppercase mb-4">O Profissional</h2>
+                  <h3 className="text-4xl md:text-5xl font-serif text-[#1A1A1A] mb-6">Dr. Rogério CBJ</h3>
+                  <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                    Com excelência técnica e rigor ético, o escritório é pautado pela transparência e pelo compromisso inabalável com os resultados de cada cliente. 
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    Nossa missão não é apenas resolver litígios, mas proporcionar <strong className="text-[#1A1A1A] font-semibold">tranquilidade e segurança jurídica</strong> através de um atendimento humanizado, onde você fala diretamente com o especialista responsável pelo seu caso.
+                  </p>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Shield className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">Confiável</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Scale className="h-5 w-5 text-blue-800" />
-                  <span className="text-gray-700">Especialista</span>
+
+                <ul className="grid sm:grid-cols-2 gap-4 pt-4">
+                  {[
+                    "Especialista em Litígios Complexos",
+                    "Atendimento Humanizado",
+                    "Transparência em todas as etapas",
+                    "Análise Estratégica de Riscos"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center space-x-3 text-sm text-[#1A1A1A] font-medium">
+                      <CheckCircle2 className="w-5 h-5 text-[#C4A265]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="pt-6">
+                  <Button onClick={openWA} className="bg-[#1A1A1A] hover:bg-[#333333] text-white px-8 py-6 rounded-none text-sm tracking-wide uppercase transition-all">
+                    Falar diretamente com o Advogado
+                  </Button>
                 </div>
               </div>
-              <Button 
-                onClick={handleWhatsAppClick}
-                className="whatsapp-button text-white px-6 py-3"
-              >
-                <MessageCircle className="h-4 w-4 mr-2" />
-                Conversar Agora
+            </div>
+          </div>
+        </section>
+
+        {/* CTA FINAL DE LUXO */}
+        <section className="relative py-32 bg-[#1A1A1A] text-center px-6 overflow-hidden">
+          {/* Textura sutil de fundo (opcional se quiser usar uma imagem) */}
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+          
+          <div className="relative z-10 max-w-3xl mx-auto space-y-8">
+            <Scale className="w-16 h-16 text-[#C4A265] mx-auto opacity-50" strokeWidth={1} />
+            <h2 className="text-4xl md:text-6xl font-serif text-white tracking-tight">
+              A justiça ao seu alcance.
+            </h2>
+            <p className="text-xl text-gray-400 font-light">
+              Não adie a resolução do seu problema. Agende uma consultoria para avaliarmos o seu cenário jurídico.
+            </p>
+            <div className="pt-8">
+              <Button onClick={openWA} className="bg-[#C4A265] hover:bg-white hover:text-[#1A1A1A] text-white px-10 py-7 rounded-none text-base font-semibold transition-all">
+                Iniciar Atendimento no WhatsApp
               </Button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* Services Section */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Como Posso Te Ajudar
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Oferecemos soluções jurídicas completas e personalizadas para suas necessidades
-            </p>
+      {/* FOOTER CLEAN */}
+      <footer className="bg-[#0A0A0A] text-gray-400 py-16 border-t border-[#1A1A1A]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center space-x-3">
+            <h3 className="text-2xl font-serif text-white">Rogério CBJ</h3>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services?.map((service, index) => (
-              <Card key={index} className="law-card">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      {service.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-600">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+          
+          <div className="flex items-center space-x-6 text-sm">
+            <a href={WA_URL} target="_blank" rel="noreferrer" className="hover:text-[#C4A265] transition-colors">WhatsApp</a>
+            <a href={`tel:+${CONTACT.phone}`} className="hover:text-[#C4A265] transition-colors">Telefone</a>
+            <span className="text-gray-600">|</span>
+            <span className="text-gray-500">OAB Ativa</span>
           </div>
         </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="section-padding bg-blue-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Por Que Escolher Nosso Escritório
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits?.map((benefit, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="p-4 bg-blue-600 rounded-full">
-                    {benefit.icon}
-                  </div>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-600">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Precisa de Ajuda Jurídica?
-          </h2>
-          <p className="text-xl mb-8 text-gray-300">
-            Entre em contato agora mesmo e receba uma consulta personalizada para seu caso
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={handleWhatsAppClick}
-              size="lg"
-              className="whatsapp-button text-white px-8 py-4 text-lg font-semibold"
-            >
-              <MessageCircle className="h-5 w-5 mr-2" />
-              Conversar no WhatsApp
-            </Button>
-            <Button 
-              onClick={handleCallClick}
-              variant="outline"
-              size="lg"
-              className="bg-transparent border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              (15) 99665-1411
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                {/* Logo Dourada no rodapé */}
-                <img src={balanceImage} alt="Justiça" className="h-8 w-8 object-contain" />
-                <div>
-                  <h3 className="text-lg font-bold">Rogério CBJ</h3>
-                  <p className="text-sm text-gray-400">Advocacia</p>
-                </div>
-              </div>
-              <p className="text-gray-400">
-                Especialistas em soluções jurídicas personalizadas
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Áreas de Atuação</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Direito do Consumidor</li>
-                <li>Direito Civil</li>
-                <li>Indenizações e Cobranças</li>
-                <li>Direito Imobiliário</li>
-                <li>Direito Empresarial</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contato</h4>
-              <div className="space-y-2 text-gray-400">
-                <div className="flex items-center space-x-2">
-                  <Phone className="h-4 w-4" />
-                  <span>(15) 99665-1411</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <MessageCircle className="h-4 w-4" />
-                  <span>WhatsApp</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Rogério CBJ Advocacia. Todos os direitos reservados.</p>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-12 text-xs text-gray-600 text-center md:text-left flex flex-col md:flex-row justify-between">
+          <p>&copy; {new Date().getFullYear()} Rogério CBJ Advocacia. Todos os direitos reservados.</p>
+          <p className="mt-2 md:mt-0">Desenvolvido com excelência.</p>
         </div>
       </footer>
     </div>
   )
 }
 
-export default LandingPageLayout
+export default Home
