@@ -16,9 +16,9 @@ import {
 import { Link } from 'react-router-dom'
 
 // --- Imagens ---
-// AQUI ESTÁ A MÁGICA: Importando o arquivo exato que você me mostrou!
 import balanceImage from '../assets/2n8lhMswimEV.png'
-import lawyerImage from '../assets/juninho.jpeg'
+// AQUI ESTÁ A ALTERAÇÃO: Trocando juninho.jpeg por imagem.jpg
+import lawyerImage from '../assets/imagem.jpg'
 
 // --- Configurações ---
 const CONTACT = {
