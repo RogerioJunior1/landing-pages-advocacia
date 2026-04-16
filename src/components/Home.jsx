@@ -151,24 +151,18 @@ const Home = () => {
             {areas.map((area, idx) => {
               const Icon = area.icon;
               return (
-                <div key={idx} className="group cursor-pointer">
+                /* AQUI ESTÁ A MÁGICA: O card inteiro agora é um Link clicável! */
+                <Link to={area.link} key={idx} onClick={() => window.scrollTo(0, 0)} className="group cursor-pointer block">
                   <div className="mb-6 w-14 h-14 bg-white border border-gray-100 flex items-center justify-center rounded-none shadow-sm group-hover:bg-[#C4A265] transition-colors duration-500">
                     <Icon className="w-6 h-6 text-[#1A1A1A] group-hover:text-white transition-colors" strokeWidth={1.5} />
                   </div>
                   <h4 className="text-xl font-serif text-[#1A1A1A] mb-3">{area.title}</h4>
                   <p className="text-gray-600 leading-relaxed mb-4">{area.desc}</p>
-                  
-                  {/* AQUI ESTÁ A CORREÇÃO: Adicionado o onClick para rolar ao topo */}
-                  <Link 
-                    to={area.link} 
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="inline-flex items-center text-sm font-semibold text-[#C4A265] hover:text-[#1A1A1A] transition-colors"
-                  >
+                  <span className="inline-flex items-center text-sm font-semibold text-[#C4A265] group-hover:text-[#1A1A1A] transition-colors">
                     Saiba mais <ChevronRight className="w-4 h-4 ml-1" />
-                  </Link>
-                  
+                  </span>
                   <div className="h-px w-full bg-gray-200 mt-6 group-hover:bg-[#C4A265] transition-colors duration-500"></div>
-                </div>
+                </Link>
               )
             })}
           </div>
