@@ -17,9 +17,8 @@ import { Link } from 'react-router-dom'
 
 // --- Imagens ---
 import balanceImage from '../assets/2n8lhMswimEV.png'
-// AQUI ESTÁ A MÁGICA: Revertendo a original e criando uma nova para a foto nova!
-import lawyerImage from '../assets/juninho.jpeg' // Esta fica para a segunda foto
-import heroLawyerImage from '../assets/imagem.jpg' // Esta fica para a primeira foto
+import lawyerImage from '../assets/juninho.jpeg' // Foto da seção "Sobre o Advogado"
+import heroLawyerImage from '../assets/imagem.jpg' // Foto da primeira seção (Hero)
 
 // --- Configurações ---
 const CONTACT = {
@@ -99,7 +98,6 @@ const Home = () => {
             <div className="lg:col-span-6 relative">
               <div className="absolute -inset-4 bg-[#C4A265] opacity-10 blur-2xl rounded-full"></div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
-                {/* ONDE MUDOU A PRIMEIRA IMAGEM: Agora usando heroLawyerImage! */}
                 <img 
                   src={heroLawyerImage} 
                   alt="Dr. Rogério CBJ"
@@ -159,9 +157,16 @@ const Home = () => {
                   </div>
                   <h4 className="text-xl font-serif text-[#1A1A1A] mb-3">{area.title}</h4>
                   <p className="text-gray-600 leading-relaxed mb-4">{area.desc}</p>
-                  <Link to={area.link} className="inline-flex items-center text-sm font-semibold text-[#C4A265] hover:text-[#1A1A1A] transition-colors">
+                  
+                  {/* AQUI ESTÁ A CORREÇÃO: Adicionado o onClick para rolar ao topo */}
+                  <Link 
+                    to={area.link} 
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="inline-flex items-center text-sm font-semibold text-[#C4A265] hover:text-[#1A1A1A] transition-colors"
+                  >
                     Saiba mais <ChevronRight className="w-4 h-4 ml-1" />
                   </Link>
+                  
                   <div className="h-px w-full bg-gray-200 mt-6 group-hover:bg-[#C4A265] transition-colors duration-500"></div>
                 </div>
               )
@@ -175,7 +180,6 @@ const Home = () => {
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-5 relative">
                 <div className="absolute top-4 -left-4 w-full h-full border border-[#C4A265] z-0 hidden md:block rounded-3xl"></div>
-                {/* AQUI FICOU COMO ESTAVA: A segunda imagem continua usando a lawyerImage original! */}
                 <img 
                   src={lawyerImage} 
                   alt="Dr. Rogério"
@@ -224,7 +228,6 @@ const Home = () => {
           <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
           
           <div className="relative z-10 max-w-3xl mx-auto space-y-8 flex flex-col items-center">
-            {/* Brasão dourado substituindo a balança! */}
             <img 
               src={balanceImage} 
               alt="Brasão Advocacia" 
