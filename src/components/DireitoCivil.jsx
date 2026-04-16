@@ -1,76 +1,63 @@
 import LandingPageLayout from './LandingPageLayout'
-import { Users, FileText, Heart, Home, Car, Scale } from 'lucide-react'
-import civilImage from '../assets/FMsPqJte6wfv.jpg'
+import { Users, Shield, Scale, Clock, HeartHandshake, FileText } from 'lucide-react'
+
+// Usando a foto nova do advogado para manter o padrão
+import heroImage from '../assets/imagem.jpg' 
 
 const DireitoCivil = () => {
-  const services = [
+  // Lista de serviços específicos dessa área
+  const civilServices = [
     {
-      icon: <FileText className="h-6 w-6 text-blue-600" />,
-      title: "Contratos em Geral",
-      description: "Elaboração, revisão e análise de contratos civis e comerciais"
-    },
-    {
-      icon: <Users className="h-6 w-6 text-blue-600" />,
-      title: "Responsabilidade Civil",
-      description: "Ações de indenização por danos morais e materiais"
-    },
-    {
-      icon: <Heart className="h-6 w-6 text-blue-600" />,
+      icon: <HeartHandshake className="w-6 h-6 text-[#C4A265]" />,
       title: "Direito de Família",
-      description: "Divórcio, pensão alimentícia, guarda de filhos e partilha de bens"
+      description: "Divórcio, pensão alimentícia, guarda e regulamentação de visitas com atendimento humanizado e discreto."
     },
     {
-      icon: <Home className="h-6 w-6 text-blue-600" />,
-      title: "Sucessões",
-      description: "Inventários, testamentos e questões hereditárias"
+      icon: <FileText className="w-6 h-6 text-[#C4A265]" />,
+      title: "Inventários e Sucessões",
+      description: "Atuação ágil em inventários judiciais e extrajudiciais, testamentos e planejamento patrimonial."
     },
     {
-      icon: <Car className="h-6 w-6 text-blue-600" />,
-      title: "Acidentes de Trânsito",
-      description: "Indenizações por acidentes e danos veiculares"
-    },
-    {
-      icon: <Scale className="h-6 w-6 text-blue-600" />,
-      title: "Direitos da Personalidade",
-      description: "Proteção da honra, imagem e privacidade"
+      icon: <Scale className="w-6 h-6 text-[#C4A265]" />,
+      title: "Contratos Civis",
+      description: "Elaboração, revisão e rescisão de contratos, garantindo total blindagem e segurança jurídica."
     }
   ]
 
-  const benefits = [
+  // Benefícios de fechar com o escritório
+  const civilBenefits = [
     {
-      icon: <Users className="h-8 w-8 text-white" />,
-      title: "Experiência Comprovada",
-      description: "Anos de atuação em direito civil"
+      icon: <Clock className="w-6 h-6 text-white" />,
+      title: "Agilidade",
+      description: "Foco na resolução rápida para evitar desgaste emocional e financeiro."
     },
     {
-      icon: <FileText className="h-8 w-8 text-white" />,
-      title: "Consultoria Completa",
-      description: "Orientação jurídica em todas as etapas"
+      icon: <Shield className="w-6 h-6 text-white" />,
+      title: "Segurança",
+      description: "Análise minuciosa de cada detalhe do seu caso antes de qualquer ação."
     },
     {
-      icon: <Heart className="h-8 w-8 text-white" />,
+      icon: <Users className="w-6 h-6 text-white" />,
       title: "Atendimento Humanizado",
-      description: "Cuidado especial com questões familiares"
+      description: "Compreensão, empatia e respeito absoluto ao seu momento de vida."
     },
     {
-      icon: <Scale className="h-8 w-8 text-white" />,
-      title: "Soluções Eficazes",
-      description: "Resultados práticos para seus problemas"
+      icon: <Scale className="w-6 h-6 text-white" />,
+      title: "Experiência",
+      description: "Anos de atuação combativa com excelentes resultados comprovados."
     }
   ]
 
   return (
-    <LandingPageLayout
-      title="Soluções Jurídicas para Sua Vida Pessoal"
-      subtitle="Especialistas em direito civil, família e questões patrimoniais"
-      heroImage={civilImage}
-      services={services}
-      benefits={benefits}
-      ctaText="Resolver Minha Questão"
-      accentColor="gray"
+    <LandingPageLayout 
+      title="Direito Civil e de Família"
+      subtitle="Resolução estratégica de litígios pessoais, familiares e patrimoniais com total discrição e rigor técnico."
+      heroImage={heroImage}
+      services={civilServices}
+      benefits={civilBenefits}
+      ctaText="Falar com Especialista"
     />
   )
 }
 
 export default DireitoCivil
-
