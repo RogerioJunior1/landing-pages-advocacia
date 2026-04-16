@@ -16,8 +16,7 @@ import {
 import { Link } from 'react-router-dom'
 
 // --- Imagens ---
-// AQUI ESTÁ A CORREÇÃO: Importando o arquivo dourado!
-import balanceImage from '../assets/2n8lhMswimEV-D2nFgqiM.png'
+import balanceImage from '../assets/2n8lhMswimEV.png'
 import lawyerImage from '../assets/juninho.jpeg'
 
 // --- Configurações ---
@@ -49,8 +48,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-4 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-            {/* Imagem limpa e sem grayscale */}
-            <img src={balanceImage} alt="Símbolo Justiça" className="h-10 w-10 object-contain" />
+            <img src={balanceImage} alt="Símbolo Justiça" className="h-10 w-10 opacity-90 grayscale contrast-125" />
             <div className="flex flex-col">
               <h1 className="text-2xl font-serif text-[#1A1A1A] tracking-tight">Rogério CBJ</h1>
               <span className="text-[10px] tracking-[0.3em] uppercase text-[#C4A265] font-semibold mt-0.5">Advocacia</span>
@@ -102,14 +100,23 @@ const Home = () => {
             {/* Imagem Hero Estilo Capa de Revista */}
             <div className="lg:col-span-6 relative">
               <div className="absolute -inset-4 bg-[#C4A265] opacity-10 blur-2xl rounded-full"></div>
-              <div className="relative aspect-[4/5] overflow-hidden">
+              {/* Onde estava: */}
+              {/* <div className="relative aspect-[4/5] overflow-hidden"> */}
+              {/* Altere para: Adicionando rounded-full no contêiner da imagem */}
+              <div className="relative aspect-[4/5] overflow-hidden rounded-full">
                 <img 
                   src={lawyerImage} 
                   alt="Dr. Rogério CBJ"
-                  className="object-cover object-top w-full h-full scale-105 hover:scale-100 transition-transform duration-1000"
+                  {/* Onde estava: */}
+                  {/* className="object-cover object-top w-full h-full scale-105 hover:scale-100 transition-transform duration-1000" */}
+                  {/* Altere para: Adicionando rounded-full à tag <img> para um recorte circular perfeito */}
+                  className="object-cover object-top w-full h-full scale-105 hover:scale-100 transition-transform duration-1000 rounded-full"
                 />
                 {/* Overlay gradiente suave na base da foto */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent opacity-80"></div>
+                {/* Onde estava: */}
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent opacity-80"></div> */}
+                {/* Altere para: Adicionando rounded-full ao overlay para seguir a forma circular */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent opacity-80 rounded-full"></div>
               </div>
             </div>
             
@@ -204,6 +211,7 @@ const Home = () => {
                     "Atendimento Humanizado",
                     "Transparência em todas as etapas",
                     "Análise Estratégica de Riscos"
+                    {/* Altere para: Adicionando rounded-full às listas de seleção se desejar um recorte circular */}
                   ].map((item, i) => (
                     <li key={i} className="flex items-center space-x-3 text-sm text-[#1A1A1A] font-medium">
                       <CheckCircle2 className="w-5 h-5 text-[#C4A265]" />
