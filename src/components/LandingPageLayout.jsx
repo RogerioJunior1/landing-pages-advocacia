@@ -16,7 +16,8 @@ import {
 import { Link } from 'react-router-dom'
 
 // --- Imagens ---
-import balanceImage from '../assets/2n8lhMswimEV-D2nFgqiM.png'
+// AQUI ESTÁ A MÁGICA: Importando o arquivo exato que você me mostrou!
+import balanceImage from '../assets/2n8lhMswimEV.png'
 import lawyerImage from '../assets/juninho.jpeg'
 
 // --- Configurações ---
@@ -46,6 +47,7 @@ const Home = () => {
       <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
           <div className="flex items-center space-x-4 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
+            {/* Logo do Header */}
             <img src={balanceImage} alt="Símbolo Justiça" className="h-10 w-10 object-contain" />
             <div className="flex flex-col">
               <h1 className="text-2xl font-serif text-[#1A1A1A] tracking-tight">Rogério CBJ</h1>
@@ -95,7 +97,6 @@ const Home = () => {
 
             <div className="lg:col-span-6 relative">
               <div className="absolute -inset-4 bg-[#C4A265] opacity-10 blur-2xl rounded-full"></div>
-              {/* Borda arredondada aplicada aqui (rounded-3xl) */}
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
                 <img 
                   src={lawyerImage} 
@@ -220,7 +221,7 @@ const Home = () => {
           <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
           
           <div className="relative z-10 max-w-3xl mx-auto space-y-8 flex flex-col items-center">
-            {/* O brasão dourado foi adicionado aqui, substituindo o ícone <Scale /> */}
+            {/* Brasão dourado substituindo a balança! */}
             <img 
               src={balanceImage} 
               alt="Brasão Advocacia" 
