@@ -17,8 +17,9 @@ import { Link } from 'react-router-dom'
 
 // --- Imagens ---
 import balanceImage from '../assets/2n8lhMswimEV.png'
-// AQUI ESTÁ A ALTERAÇÃO: Trocando juninho.jpeg por imagem.jpg
-import lawyerImage from '../assets/imagem.jpg'
+// AQUI ESTÁ A MÁGICA: Revertendo a original e criando uma nova para a foto nova!
+import lawyerImage from '../assets/juninho.jpeg' // Esta fica para a segunda foto
+import heroLawyerImage from '../assets/imagem.jpg' // Esta fica para a primeira foto
 
 // --- Configurações ---
 const CONTACT = {
@@ -98,8 +99,9 @@ const Home = () => {
             <div className="lg:col-span-6 relative">
               <div className="absolute -inset-4 bg-[#C4A265] opacity-10 blur-2xl rounded-full"></div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
+                {/* ONDE MUDOU A PRIMEIRA IMAGEM: Agora usando heroLawyerImage! */}
                 <img 
-                  src={lawyerImage} 
+                  src={heroLawyerImage} 
                   alt="Dr. Rogério CBJ"
                   className="object-cover object-top w-full h-full scale-105 hover:scale-100 transition-transform duration-1000"
                 />
@@ -173,6 +175,7 @@ const Home = () => {
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-5 relative">
                 <div className="absolute top-4 -left-4 w-full h-full border border-[#C4A265] z-0 hidden md:block rounded-3xl"></div>
+                {/* AQUI FICOU COMO ESTAVA: A segunda imagem continua usando a lawyerImage original! */}
                 <img 
                   src={lawyerImage} 
                   alt="Dr. Rogério"
