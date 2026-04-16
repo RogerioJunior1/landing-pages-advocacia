@@ -16,6 +16,7 @@ import {
 import { Link } from 'react-router-dom'
 
 // --- Imagens ---
+// AQUI ESTÁ A MÁGICA: Importando o arquivo exato que você me mostrou!
 import balanceImage from '../assets/2n8lhMswimEV.png'
 import lawyerImage from '../assets/juninho.jpeg'
 
@@ -40,15 +41,13 @@ const Home = () => {
   const openCall = () => window.open(`tel:+${CONTACT.phone}`, '_self')
 
   return (
-    // Fundo ultra clean em tons de off-white (#FAFAFA)
     <div className="min-h-screen bg-[#FAFAFA] text-[#333333] font-sans selection:bg-[#C4A265] selection:text-white">
       
       {/* HEADER MINIMALISTA */}
       <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
-          {/* Logo */}
           <div className="flex items-center space-x-4 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-            {/* LOGO ARRUAMDA AQUI */}
+            {/* Logo do Header */}
             <img src={balanceImage} alt="Símbolo Justiça" className="h-10 w-10 object-contain" />
             <div className="flex flex-col">
               <h1 className="text-2xl font-serif text-[#1A1A1A] tracking-tight">Rogério CBJ</h1>
@@ -56,7 +55,6 @@ const Home = () => {
             </div>
           </div>
           
-          {/* Ações Header */}
           <div className="hidden md:flex items-center space-x-8">
             <a href={`tel:+${CONTACT.phone}`} className="flex items-center text-sm font-medium hover:text-[#C4A265] transition-colors">
               <Phone className="w-4 h-4 mr-2 text-[#C4A265]" />
@@ -74,7 +72,6 @@ const Home = () => {
         <section className="relative pt-12 pb-24 lg:pt-24 lg:pb-32 px-6 lg:px-12 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             
-            {/* Texto Hero */}
             <div className="lg:col-span-6 space-y-8 z-10">
               <div className="inline-flex items-center space-x-2 border border-[#C4A265]/30 bg-[#C4A265]/5 px-4 py-2 rounded-full">
                 <span className="w-2 h-2 rounded-full bg-[#C4A265] animate-pulse"></span>
@@ -98,16 +95,14 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Imagem Hero Estilo Capa de Revista */}
             <div className="lg:col-span-6 relative">
               <div className="absolute -inset-4 bg-[#C4A265] opacity-10 blur-2xl rounded-full"></div>
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
                 <img 
                   src={lawyerImage} 
                   alt="Dr. Rogério CBJ"
                   className="object-cover object-top w-full h-full scale-105 hover:scale-100 transition-transform duration-1000"
                 />
-                {/* Overlay gradiente suave na base da foto */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent opacity-80"></div>
               </div>
             </div>
@@ -177,11 +172,11 @@ const Home = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-5 relative">
-                <div className="absolute top-4 -left-4 w-full h-full border border-[#C4A265] z-0 hidden md:block"></div>
+                <div className="absolute top-4 -left-4 w-full h-full border border-[#C4A265] z-0 hidden md:block rounded-3xl"></div>
                 <img 
                   src={lawyerImage} 
                   alt="Dr. Rogério"
-                  className="w-full h-auto object-cover relative z-10 grayscale-[20%]"
+                  className="w-full h-auto object-cover relative z-10 grayscale-[20%] rounded-3xl shadow-lg"
                 />
               </div>
               
@@ -223,11 +218,16 @@ const Home = () => {
 
         {/* CTA FINAL DE LUXO */}
         <section className="relative py-32 bg-[#1A1A1A] text-center px-6 overflow-hidden">
-          {/* Textura sutil de fundo (opcional se quiser usar uma imagem) */}
           <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
           
-          <div className="relative z-10 max-w-3xl mx-auto space-y-8">
-            <Scale className="w-16 h-16 text-[#C4A265] mx-auto opacity-50" strokeWidth={1} />
+          <div className="relative z-10 max-w-3xl mx-auto space-y-8 flex flex-col items-center">
+            {/* Brasão dourado substituindo a balança! */}
+            <img 
+              src={balanceImage} 
+              alt="Brasão Advocacia" 
+              className="w-24 h-24 object-contain opacity-90 drop-shadow-lg" 
+            />
+            
             <h2 className="text-4xl md:text-6xl font-serif text-white tracking-tight">
               A justiça ao seu alcance.
             </h2>
