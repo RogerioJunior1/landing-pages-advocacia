@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-// Importando todas as páginas com a extensão .jsx para o Vercel não se perder!
 import Home from './components/Home.jsx'
 import DireitoConsumidor from './components/DireitoConsumidor.jsx'
 import DireitoCivil from './components/DireitoCivil.jsx'
 import DireitoImobiliario from './components/DireitoImobiliario.jsx'
 import DireitoEmpresarial from './components/DireitoEmpresarial.jsx'
-import IndenizacoesCobrancas from './components/IndenizacoesCobrancas.jsx'
+// Desligamos a página de Indenizações temporariamente para não travar o Vercel
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
         <Route path="/direito-civil" element={<DireitoCivil />} />
         <Route path="/direito-imobiliario" element={<DireitoImobiliario />} />
         <Route path="/direito-empresarial" element={<DireitoEmpresarial />} />
-        <Route path="/indenizacoes-cobrancas" element={<IndenizacoesCobrancas />} />
       </Routes>
     </Router>
   )
