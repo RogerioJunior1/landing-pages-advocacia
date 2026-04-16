@@ -171,7 +171,6 @@ const Home = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-5 relative">
-                {/* Bordas arredondadas no contorno de enfeite e na foto do advogado */}
                 <div className="absolute top-4 -left-4 w-full h-full border border-[#C4A265] z-0 hidden md:block rounded-3xl"></div>
                 <img 
                   src={lawyerImage} 
@@ -220,8 +219,14 @@ const Home = () => {
         <section className="relative py-32 bg-[#1A1A1A] text-center px-6 overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
           
-          <div className="relative z-10 max-w-3xl mx-auto space-y-8">
-            <Scale className="w-16 h-16 text-[#C4A265] mx-auto opacity-50" strokeWidth={1} />
+          <div className="relative z-10 max-w-3xl mx-auto space-y-8 flex flex-col items-center">
+            {/* O brasão dourado foi adicionado aqui, substituindo o ícone <Scale /> */}
+            <img 
+              src={balanceImage} 
+              alt="Brasão Advocacia" 
+              className="w-24 h-24 object-contain opacity-90 drop-shadow-lg" 
+            />
+            
             <h2 className="text-4xl md:text-6xl font-serif text-white tracking-tight">
               A justiça ao seu alcance.
             </h2>
