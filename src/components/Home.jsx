@@ -15,6 +15,7 @@ import {
 import { Link } from 'react-router-dom'
 
 import balanceImage from '../assets/2n8lhMswimEV.png'
+import heroImage from '../assets/imagem.jpg'
 import lawyerImage from '../assets/juninho.jpeg'
 
 const CONTACT = {
@@ -142,7 +143,7 @@ const Home = () => {
               <div className="absolute -inset-4 rounded-full bg-[#C4A265] opacity-10 blur-2xl"></div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
                 <img
-                  src={lawyerImage}
+                  src={heroImage}
                   alt="Dr. Rogério CBJ"
                   className="h-full w-full scale-105 object-cover object-top transition-transform duration-1000 hover:scale-100"
                 />
