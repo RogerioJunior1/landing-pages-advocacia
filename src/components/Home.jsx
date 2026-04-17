@@ -15,12 +15,10 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-// --- Imagens ---
+// --- Imagens Originais ---
 import balanceImage from '../assets/2n8lhMswimEV.png'
-import lawyerImage from '../assets/juninho.jpeg' // Foto da seção "Sobre o Advogado"
-import heroLawyerImage from '../assets/imagem.jpg' // Foto da primeira seção (Hero)
+import lawyerImage from '../assets/juninho.jpeg'
 
-// --- Configurações ---
 const CONTACT = {
   phone: "5515996651411",
   displayPhone: "(15) 99665-1411",
@@ -38,16 +36,13 @@ const areas = [
 
 const Home = () => {
   const openWA = () => window.open(WA_URL, '_blank', 'noopener,noreferrer')
-  const openCall = () => window.open(`tel:+${CONTACT.phone}`, '_self')
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-[#333333] font-sans selection:bg-[#C4A265] selection:text-white">
       
-      {/* HEADER MINIMALISTA */}
       <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
           <div className="flex items-center space-x-4 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-            {/* Logo do Header */}
             <img src={balanceImage} alt="Símbolo Justiça" className="h-10 w-10 object-contain" />
             <div className="flex flex-col">
               <h1 className="text-2xl font-serif text-[#1A1A1A] tracking-tight">Rogério CBJ</h1>
@@ -68,25 +63,20 @@ const Home = () => {
       </header>
 
       <main>
-        {/* HERO SECTION EDITORIAL */}
         <section className="relative pt-12 pb-24 lg:pt-24 lg:pb-32 px-6 lg:px-12 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
-            
             <div className="lg:col-span-6 space-y-8 z-10">
               <div className="inline-flex items-center space-x-2 border border-[#C4A265]/30 bg-[#C4A265]/5 px-4 py-2 rounded-full">
                 <span className="w-2 h-2 rounded-full bg-[#C4A265] animate-pulse"></span>
                 <span className="text-xs font-semibold uppercase tracking-wider text-[#C4A265]">Atendimento Personalizado</span>
               </div>
-              
               <h1 className="text-5xl lg:text-7xl font-serif text-[#1A1A1A] leading-[1.1] tracking-tight">
                 Defesa sólida <br/>
                 <span className="italic text-[#C4A265]">para seus direitos.</span>
               </h1>
-              
               <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
                 Atuação combativa, técnica e estratégica. Oferecemos segurança jurídica com excelência para pessoas físicas e empresas.
               </p>
-              
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button onClick={openWA} className="bg-[#C4A265] hover:bg-[#B39155] text-white px-8 py-6 rounded-none text-base font-semibold transition-all flex items-center justify-center">
                   <MessageCircle className="w-5 h-5 mr-2" />
@@ -99,18 +89,16 @@ const Home = () => {
               <div className="absolute -inset-4 bg-[#C4A265] opacity-10 blur-2xl rounded-full"></div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
                 <img 
-                  src={heroLawyerImage} 
+                  src={lawyerImage} 
                   alt="Dr. Rogério CBJ"
                   className="object-cover object-top w-full h-full scale-105 hover:scale-100 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent opacity-80"></div>
               </div>
             </div>
-            
           </div>
         </section>
 
-        {/* BARRA DE CREDIBILIDADE (Dark Mode) */}
         <section className="bg-[#1A1A1A] py-12 px-6">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-800">
             <div className="flex items-center space-x-4 md:px-8">
@@ -137,7 +125,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* ÁREAS DE ATUAÇÃO (Minimalista / Editorial) */}
         <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
           <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-2xl">
@@ -151,24 +138,22 @@ const Home = () => {
             {areas.map((area, idx) => {
               const Icon = area.icon;
               return (
-                /* AQUI ESTÁ A MÁGICA: O card inteiro agora é um Link clicável! */
-                <Link to={area.link} key={idx} onClick={() => window.scrollTo(0, 0)} className="group cursor-pointer block">
+                <div key={idx} className="group cursor-pointer">
                   <div className="mb-6 w-14 h-14 bg-white border border-gray-100 flex items-center justify-center rounded-none shadow-sm group-hover:bg-[#C4A265] transition-colors duration-500">
                     <Icon className="w-6 h-6 text-[#1A1A1A] group-hover:text-white transition-colors" strokeWidth={1.5} />
                   </div>
                   <h4 className="text-xl font-serif text-[#1A1A1A] mb-3">{area.title}</h4>
                   <p className="text-gray-600 leading-relaxed mb-4">{area.desc}</p>
-                  <span className="inline-flex items-center text-sm font-semibold text-[#C4A265] group-hover:text-[#1A1A1A] transition-colors">
+                  <Link to={area.link} onClick={() => window.scrollTo(0, 0)} className="inline-flex items-center text-sm font-semibold text-[#C4A265] hover:text-[#1A1A1A] transition-colors">
                     Saiba mais <ChevronRight className="w-4 h-4 ml-1" />
-                  </span>
+                  </Link>
                   <div className="h-px w-full bg-gray-200 mt-6 group-hover:bg-[#C4A265] transition-colors duration-500"></div>
-                </Link>
+                </div>
               )
             })}
           </div>
         </section>
 
-        {/* SOBRE O ADVOGADO (Layout Dividido e Elegante) */}
         <section className="bg-white border-y border-gray-100 py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-16 items-center">
@@ -217,17 +202,10 @@ const Home = () => {
           </div>
         </section>
 
-        {/* CTA FINAL DE LUXO */}
         <section className="relative py-32 bg-[#1A1A1A] text-center px-6 overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
-          
           <div className="relative z-10 max-w-3xl mx-auto space-y-8 flex flex-col items-center">
-            <img 
-              src={balanceImage} 
-              alt="Brasão Advocacia" 
-              className="w-24 h-24 object-contain opacity-90 drop-shadow-lg" 
-            />
-            
+            <img src={balanceImage} alt="Brasão Advocacia" className="w-24 h-24 object-contain opacity-90 drop-shadow-lg" />
             <h2 className="text-4xl md:text-6xl font-serif text-white tracking-tight">
               A justiça ao seu alcance.
             </h2>
@@ -243,13 +221,11 @@ const Home = () => {
         </section>
       </main>
 
-      {/* FOOTER CLEAN */}
       <footer className="bg-[#0A0A0A] text-gray-400 py-16 border-t border-[#1A1A1A]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center space-x-3">
             <h3 className="text-2xl font-serif text-white">Rogério CBJ</h3>
           </div>
-          
           <div className="flex items-center space-x-6 text-sm">
             <a href={WA_URL} target="_blank" rel="noreferrer" className="hover:text-[#C4A265] transition-colors">WhatsApp</a>
             <a href={`tel:+${CONTACT.phone}`} className="hover:text-[#C4A265] transition-colors">Telefone</a>
