@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import {
-  Phone,
   MessageCircle,
   ArrowLeft,
   ShoppingCart,
@@ -66,18 +65,7 @@ const DireitoConsumidor = () => {
       <main>
         <section className="relative mx-auto max-w-7xl px-6 pb-16 pt-12 lg:px-12 lg:pb-24 lg:pt-24">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="relative order-2 lg:order-1">
-              <div className="absolute -inset-4 rounded-full bg-[#C4A265] opacity-10 blur-2xl"></div>
-              <div className="relative overflow-hidden rounded-3xl shadow-xl">
-                <img
-                  src={consumerImage}
-                  alt="Atendimento em Direito do Consumidor"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="order-1 max-w-3xl lg:order-2">
+            <div className="max-w-3xl">
               <div className="mb-6 inline-flex items-center space-x-2">
                 <ShoppingCart className="h-5 w-5 text-[#C4A265]" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C4A265]">
@@ -105,6 +93,17 @@ const DireitoConsumidor = () => {
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Defender Meus Direitos Agora
               </Button>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-full bg-[#C4A265] opacity-10 blur-2xl"></div>
+              <div className="relative overflow-hidden rounded-3xl shadow-xl">
+                <img
+                  src={consumerImage}
+                  alt="Atendimento em Direito do Consumidor"
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>
