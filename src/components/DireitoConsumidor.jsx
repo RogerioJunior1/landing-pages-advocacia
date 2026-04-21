@@ -14,6 +14,7 @@ import {
 import { Link } from 'react-router-dom'
 
 import balanceImage from '../assets/2n8lhMswimEV.png'
+import consumerImage from '../assets/Imagem (190).png'
 
 const CONTACT = {
   phone: '5515996651411',
@@ -84,6 +85,14 @@ const DireitoConsumidor = () => {
               Voltar ao Início
             </Link>
 
+            <a
+              href={`tel:+${CONTACT.phone}`}
+              className="flex items-center text-sm font-medium transition-colors hover:text-[#C4A265]"
+            >
+              <Phone className="mr-2 h-4 w-4 text-[#C4A265]" />
+              {CONTACT.displayPhone}
+            </a>
+
             <Button
               onClick={openWA}
               className="rounded-none bg-[#1A1A1A] px-6 py-5 font-medium tracking-wide text-white transition-all hover:bg-[#333333]"
@@ -96,33 +105,47 @@ const DireitoConsumidor = () => {
 
       <main>
         <section className="relative mx-auto max-w-7xl px-6 pb-16 pt-12 lg:px-12 lg:pb-24 lg:pt-24">
-          <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center space-x-2">
-              <ShoppingCart className="h-5 w-5 text-[#C4A265]" />
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C4A265]">
-                Direito do Consumidor
-              </span>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="max-w-3xl">
+              <div className="mb-6 inline-flex items-center space-x-2">
+                <ShoppingCart className="h-5 w-5 text-[#C4A265]" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C4A265]">
+                  Direito do Consumidor
+                </span>
+              </div>
+
+              <h1 className="mb-8 text-5xl font-serif leading-[1.1] tracking-tight text-[#1A1A1A] lg:text-7xl">
+                Defesa implacável contra{' '}
+                <span className="italic text-[#C4A265]">práticas abusivas.</span>
+              </h1>
+
+              <p className="mb-10 text-lg leading-relaxed text-gray-600">
+                Você não precisa aceitar o prejuízo. Somos especialistas em
+                proteger consumidores contra grandes empresas, bancos,
+                companhias aéreas e planos de saúde. Garantimos que seus
+                direitos sejam respeitados e que você seja devidamente
+                indenizado.
+              </p>
+
+              <Button
+                onClick={openWA}
+                className="flex items-center justify-center rounded-none bg-[#C4A265] px-8 py-6 text-base font-semibold text-white transition-all hover:bg-[#B39155]"
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Defender Meus Direitos Agora
+              </Button>
             </div>
 
-            <h1 className="mb-8 text-5xl font-serif leading-[1.1] tracking-tight text-[#1A1A1A] lg:text-7xl">
-              Defesa implacável contra{' '}
-              <span className="italic text-[#C4A265]">práticas abusivas.</span>
-            </h1>
-
-            <p className="mb-10 text-lg leading-relaxed text-gray-600">
-              Você não precisa aceitar o prejuízo. Somos especialistas em
-              proteger consumidores contra grandes empresas, bancos, companhias
-              aéreas e planos de saúde. Garantimos que seus direitos sejam
-              respeitados e que você seja devidamente indenizado.
-            </p>
-
-            <Button
-              onClick={openWA}
-              className="flex items-center justify-center rounded-none bg-[#C4A265] px-8 py-6 text-base font-semibold text-white transition-all hover:bg-[#B39155]"
-            >
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Defender Meus Direitos Agora
-            </Button>
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-full bg-[#C4A265] opacity-10 blur-2xl"></div>
+              <div className="relative overflow-hidden rounded-3xl shadow-xl">
+                <img
+                  src={consumerImage}
+                  alt="Atendimento em Direito do Consumidor"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
