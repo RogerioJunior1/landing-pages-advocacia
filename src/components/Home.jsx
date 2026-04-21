@@ -9,13 +9,9 @@ import {
   ShoppingCart,
   Home as HomeIcon,
   Briefcase,
-  ChevronRight,
-  CheckCircle2,
 } from 'lucide-react'
-import { Link } from 'react-router-dom'
 
 import balanceImage from '../assets/2n8lhMswimEV.png'
-import heroImage from '../assets/imagem.jpg'
 import lawyerImage from '../assets/juninho.jpeg'
 
 const CONTACT = {
@@ -33,31 +29,26 @@ const areas = [
     title: 'Direito do Consumidor',
     desc: 'Defesa implacável contra práticas abusivas de empresas e prestadores de serviços.',
     icon: ShoppingCart,
-    link: '/direito-consumidor',
   },
   {
     title: 'Direito Civil',
     desc: 'Resolução estratégica de litígios pessoais, familiares e patrimoniais.',
     icon: Users,
-    link: '/direito-civil',
   },
   {
     title: 'Indenizações e Cobranças',
-    desc: 'Atuação incisiva na recuperação de valores e reparação de danos (morais e materiais).',
+    desc: 'Atuação incisiva na recuperação de valores e reparação de danos.',
     icon: Scale,
-    link: '/indenizacoes-cobrancas',
   },
   {
     title: 'Direito Imobiliário',
     desc: 'Segurança jurídica em contratos, compra, venda e regularização de imóveis.',
     icon: HomeIcon,
-    link: '/direito-imobiliario',
   },
   {
     title: 'Direito Empresarial',
     desc: 'Blindagem jurídica e assessoria consultiva para o crescimento do seu negócio.',
     icon: Briefcase,
-    link: '/direito-empresarial',
   },
 ]
 
@@ -95,6 +86,7 @@ const Home = () => {
               <Phone className="mr-2 h-4 w-4 text-[#C4A265]" />
               {CONTACT.displayPhone}
             </a>
+
             <Button
               onClick={openWA}
               className="rounded-none bg-[#1A1A1A] px-6 py-5 font-medium tracking-wide text-white transition-all hover:bg-[#333333]"
@@ -109,13 +101,6 @@ const Home = () => {
         <section className="relative mx-auto max-w-7xl px-6 pb-24 pt-12 lg:px-12 lg:pb-32 lg:pt-24">
           <div className="grid items-center gap-16 lg:grid-cols-12">
             <div className="z-10 space-y-8 lg:col-span-6">
-              <div className="inline-flex items-center space-x-2 rounded-full border border-[#C4A265]/30 bg-[#C4A265]/5 px-4 py-2">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-[#C4A265]"></span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#C4A265]">
-                  Atendimento Personalizado
-                </span>
-              </div>
-
               <h1 className="text-5xl leading-[1.1] tracking-tight text-[#1A1A1A] font-serif lg:text-7xl">
                 Defesa sólida <br />
                 <span className="italic text-[#C4A265]">
@@ -140,52 +125,13 @@ const Home = () => {
             </div>
 
             <div className="relative lg:col-span-6">
-              <div className="absolute -inset-4 rounded-full bg-[#C4A265] opacity-10 blur-2xl"></div>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
                 <img
-                  src={heroImage}
+                  src={lawyerImage}
                   alt="Dr. Rogério CBJ"
                   className="h-full w-full scale-105 object-cover object-top transition-transform duration-1000 hover:scale-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent opacity-80"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#1A1A1A] px-6 py-12">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 divide-y divide-gray-800 md:grid-cols-3 md:divide-x md:divide-y-0">
-            <div className="flex items-center space-x-4 md:px-8">
-              <Award className="h-10 w-10 text-[#C4A265] stroke-[1.5]" />
-              <div>
-                <h4 className="text-xl text-white font-serif">OAB Ativa</h4>
-                <p className="text-sm text-gray-400">
-                  Registro regular e verificado
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4 pt-8 md:px-8 md:pt-0">
-              <Shield className="h-10 w-10 text-[#C4A265] stroke-[1.5]" />
-              <div>
-                <h4 className="text-xl text-white font-serif">
-                  Sigilo Absoluto
-                </h4>
-                <p className="text-sm text-gray-400">
-                  Seus dados e caso protegidos
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4 pt-8 md:px-8 md:pt-0">
-              <Scale className="h-10 w-10 text-[#C4A265] stroke-[1.5]" />
-              <div>
-                <h4 className="text-xl text-white font-serif">
-                  Atuação Especializada
-                </h4>
-                <p className="text-sm text-gray-400">
-                  Foco nas melhores soluções
-                </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-transparent opacity-80" />
               </div>
             </div>
           </div>
@@ -201,18 +147,14 @@ const Home = () => {
                 Áreas de Atuação
               </h3>
             </div>
-            <p className="max-w-md text-gray-600">
-              Soluções sob medida para o seu momento de vida ou para o seu
-              modelo de negócio.
-            </p>
           </div>
 
           <div className="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-            {areas.map((area, idx) => {
+            {areas.map((area) => {
               const Icon = area.icon
 
               return (
-                <div key={idx} className="group cursor-pointer">
+                <div key={area.title} className="group cursor-pointer">
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-none border border-gray-100 bg-white shadow-sm transition-colors duration-500 group-hover:bg-[#C4A265]">
                     <Icon
                       className="h-6 w-6 text-[#1A1A1A] transition-colors group-hover:text-white"
@@ -224,18 +166,7 @@ const Home = () => {
                     {area.title}
                   </h4>
 
-                  <p className="mb-4 leading-relaxed text-gray-600">
-                    {area.desc}
-                  </p>
-
-                  <Link
-                    to={area.link}
-                    className="inline-flex items-center text-sm font-semibold text-[#C4A265] transition-colors hover:text-[#1A1A1A]"
-                  >
-                    Saiba mais <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
-
-                  <div className="mt-6 h-px w-full bg-gray-200 transition-colors duration-500 group-hover:bg-[#C4A265]"></div>
+                  <p className="leading-relaxed text-gray-600">{area.desc}</p>
                 </div>
               )
             })}
@@ -246,7 +177,7 @@ const Home = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
             <div className="grid items-center gap-16 lg:grid-cols-12">
               <div className="relative lg:col-span-5">
-                <div className="absolute top-4 -left-4 z-0 hidden h-full w-full rounded-3xl border border-[#C4A265] md:block"></div>
+                <div className="absolute -left-4 top-4 hidden h-full w-full rounded-3xl border border-[#C4A265]/60 md:block" />
                 <img
                   src={lawyerImage}
                   alt="Dr. Rogério"
@@ -254,8 +185,8 @@ const Home = () => {
                 />
               </div>
 
-              <div className="space-y-8 lg:col-span-7 lg:pl-10">
-                <div>
+              <div className="space-y-10 lg:col-span-7 lg:pl-10">
+                <div className="mx-auto max-w-2xl text-center">
                   <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#C4A265]">
                     O Profissional
                   </h2>
@@ -268,34 +199,61 @@ const Home = () => {
                     resultados de cada cliente.
                   </p>
                   <p className="leading-relaxed text-gray-600">
-                    Nossa missão não é apenas resolver litígios, mas
-                    proporcionar{' '}
-                    <strong className="font-semibold text-[#1A1A1A]">
-                      tranquilidade e segurança jurídica
-                    </strong>{' '}
-                    através de um atendimento humanizado, onde você fala
-                    diretamente com o especialista responsável pelo seu caso.
+                    Cada estratégia é construída com atenção aos detalhes do
+                    caso, comunicação clara e atuação direta para oferecer
+                    segurança jurídica desde o primeiro contato.
                   </p>
                 </div>
 
-                <ul className="grid gap-4 pt-4 sm:grid-cols-2">
+                <div className="grid gap-4 md:grid-cols-2">
                   {[
-                    'Especialista em Litígios Complexos',
-                    'Atendimento Humanizado',
-                    'Transparência em todas as etapas',
-                    'Análise Estratégica de Riscos',
-                  ].map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center space-x-3 text-sm font-medium text-[#1A1A1A]"
-                    >
-                      <CheckCircle2 className="h-5 w-5 text-[#C4A265]" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                    {
+                      icon: Scale,
+                      title: 'Especialista em Litígios Complexos',
+                      desc: 'Atuação técnica e estratégica em demandas sensíveis.',
+                    },
+                    {
+                      icon: Users,
+                      title: 'Atendimento Humanizado',
+                      desc: 'Escuta ativa e proximidade em cada etapa do caso.',
+                    },
+                    {
+                      icon: Award,
+                      title: 'Transparência em todas as etapas',
+                      desc: 'Orientação clara para decisões mais seguras.',
+                    },
+                    {
+                      icon: Shield,
+                      title: 'Análise Estratégica de Riscos',
+                      desc: 'Prevenção, proteção e foco em resultado consistente.',
+                    },
+                  ].map((item) => {
+                    const Icon = item.icon
 
-                <div className="pt-6">
+                    return (
+                      <div
+                        key={item.title}
+                        className="group rounded-2xl border border-gray-100 bg-[#FAFAFA] p-5 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C4A265]/40 hover:shadow-lg"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-[#C4A265]/30 bg-[#C4A265]/10 transition-colors duration-300 group-hover:bg-[#C4A265]">
+                            <Icon className="h-5 w-5 text-[#C4A265] transition-colors duration-300 group-hover:text-white" />
+                          </div>
+                          <div>
+                            <h4 className="mb-1 text-base font-semibold text-[#1A1A1A]">
+                              {item.title}
+                            </h4>
+                            <p className="text-sm leading-relaxed text-gray-600">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+
+                <div className="flex justify-center pt-2">
                   <Button
                     onClick={openWA}
                     className="rounded-none bg-[#1A1A1A] px-8 py-6 text-sm uppercase tracking-wide text-white transition-all hover:bg-[#333333]"
@@ -307,72 +265,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-
-        <section className="relative overflow-hidden bg-[#1A1A1A] px-6 py-32 text-center">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.03]"></div>
-
-          <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center space-y-8">
-            <img
-              src={balanceImage}
-              alt="Brasão Advocacia"
-              className="h-24 w-24 object-contain opacity-90 drop-shadow-lg"
-            />
-
-            <h2 className="text-4xl tracking-tight text-white font-serif md:text-6xl">
-              A justiça ao seu alcance.
-            </h2>
-
-            <p className="text-xl font-light text-gray-400">
-              Não adie a resolução do seu problema. Agende uma consultoria para
-              avaliarmos o seu cenário jurídico.
-            </p>
-
-            <div className="pt-8">
-              <Button
-                onClick={openWA}
-                className="rounded-none bg-[#C4A265] px-10 py-7 text-base font-semibold text-white transition-all hover:bg-white hover:text-[#1A1A1A]"
-              >
-                Iniciar Atendimento no WhatsApp
-              </Button>
-            </div>
-          </div>
-        </section>
       </main>
-
-      <footer className="border-t border-[#1A1A1A] bg-[#0A0A0A] py-16 text-gray-400">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-6 md:flex-row lg:px-12">
-          <div className="flex items-center space-x-3">
-            <h3 className="text-2xl text-white font-serif">Rogério CBJ</h3>
-          </div>
-
-          <div className="flex items-center space-x-6 text-sm">
-            <a
-              href={WA_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors hover:text-[#C4A265]"
-            >
-              WhatsApp
-            </a>
-            <a
-              href={`tel:+${CONTACT.phone}`}
-              className="transition-colors hover:text-[#C4A265]"
-            >
-              Telefone
-            </a>
-            <span className="text-gray-600">|</span>
-            <span className="text-gray-500">OAB Ativa</span>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-12 flex max-w-7xl flex-col justify-between px-6 text-center text-xs text-gray-600 md:flex-row md:text-left lg:px-12">
-          <p>
-            &copy; {new Date().getFullYear()} Rogério CBJ Advocacia. Todos os
-            direitos reservados.
-          </p>
-          <p className="mt-2 md:mt-0">Desenvolvido com excelência.</p>
-        </div>
-      </footer>
     </div>
   )
 }
