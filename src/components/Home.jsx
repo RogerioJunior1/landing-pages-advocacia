@@ -3,8 +3,6 @@ import {
   Phone,
   MessageCircle,
   Scale,
-  Shield,
-  Award,
   Users,
   ShoppingCart,
   Home as HomeIcon,
@@ -177,7 +175,6 @@ const Home = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-12">
             <div className="grid items-center gap-16 lg:grid-cols-12">
               <div className="relative lg:col-span-5">
-                <div className="absolute -left-4 top-4 hidden h-full w-full rounded-3xl border border-[#C4A265]/60 md:block" />
                 <img
                   src={lawyerImage}
                   alt="Dr. Rogério"
@@ -185,8 +182,8 @@ const Home = () => {
                 />
               </div>
 
-              <div className="space-y-10 lg:col-span-7 lg:pl-10">
-                <div className="mx-auto max-w-2xl text-center">
+              <div className="space-y-8 lg:col-span-7 lg:pl-10">
+                <div>
                   <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#C4A265]">
                     O Profissional
                   </h2>
@@ -198,62 +195,9 @@ const Home = () => {
                     pela transparência e pelo compromisso inabalável com os
                     resultados de cada cliente.
                   </p>
-                  <p className="leading-relaxed text-gray-600">
-                    Cada estratégia é construída com atenção aos detalhes do
-                    caso, comunicação clara e atuação direta para oferecer
-                    segurança jurídica desde o primeiro contato.
-                  </p>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-2">
-                  {[
-                    {
-                      icon: Scale,
-                      title: 'Especialista em Litígios Complexos',
-                      desc: 'Atuação técnica e estratégica em demandas sensíveis.',
-                    },
-                    {
-                      icon: Users,
-                      title: 'Atendimento Humanizado',
-                      desc: 'Escuta ativa e proximidade em cada etapa do caso.',
-                    },
-                    {
-                      icon: Award,
-                      title: 'Transparência em todas as etapas',
-                      desc: 'Orientação clara para decisões mais seguras.',
-                    },
-                    {
-                      icon: Shield,
-                      title: 'Análise Estratégica de Riscos',
-                      desc: 'Prevenção, proteção e foco em resultado consistente.',
-                    },
-                  ].map((item) => {
-                    const Icon = item.icon
-
-                    return (
-                      <div
-                        key={item.title}
-                        className="group rounded-2xl border border-gray-100 bg-[#FAFAFA] p-5 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C4A265]/40 hover:shadow-lg"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-[#C4A265]/30 bg-[#C4A265]/10 transition-colors duration-300 group-hover:bg-[#C4A265]">
-                            <Icon className="h-5 w-5 text-[#C4A265] transition-colors duration-300 group-hover:text-white" />
-                          </div>
-                          <div>
-                            <h4 className="mb-1 text-base font-semibold text-[#1A1A1A]">
-                              {item.title}
-                            </h4>
-                            <p className="text-sm leading-relaxed text-gray-600">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-
-                <div className="flex justify-center pt-2">
+                <div className="pt-6">
                   <Button
                     onClick={openWA}
                     className="rounded-none bg-[#1A1A1A] px-8 py-6 text-sm uppercase tracking-wide text-white transition-all hover:bg-[#333333]"
