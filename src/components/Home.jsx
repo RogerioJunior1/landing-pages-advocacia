@@ -202,8 +202,7 @@ const Home = () => {
               </h3>
             </div>
             <p className="max-w-md text-gray-600">
-              Soluções sob medida para o seu momento de vida ou para o seu
-              modelo de negócio.
+            
             </p>
           </div>
 
